@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.org">
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
 
 <hibernate-configuration>
     <session-factory>
-        <!-- MySQL Database Driver Class -->
-        <property name="jakarta.persistence.jdbc.driver">com.mysql.cj.jdbc.Driver</property>
+        <!-- 1. MariaDB network wire driver -->
+        <property name="jakarta.persistence.jdbc.driver">org.mariadb.jdbc.Driver</property>
 
-        <!-- MySQL Connection URL (Update localhost:3306/demo_db if your port or DB name is different) -->
-        <property name="jakarta.persistence.jdbc.url">jdbc.mysql://localhost:3306/demo_db?useSSL=false&amp;serverTimezone=UTC</property>
+        <!-- 2. local XAMPP network socket and schema name -->
+        <property name="jakarta.persistence.jdbc.url">jdbc:mariadb://127.0.0.1:3306/maven_demo_db</property>
 
-        <!-- Database Credentials (CHANGE THESE to match your local MySQL username and password) -->
+        <!-- 3. XAMPP user credentials -->
         <property name="jakarta.persistence.jdbc.user">root</property>
-        <property name="jakarta.persistence.jdbc.password">yourpassword</property>
+        <property name="jakarta.persistence.jdbc.password">root</property>
 
-        <!-- Dialect to optimize Hibernate queries for modern MySQL systems -->
+        <!-- 4. MySQL translation layer -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
-        <!-- Debugging configurations to see the statements in terminal -->
+        <!-- Debugging console properties -->
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
-
-        <!-- Changed to 'update' so it builds tables if missing, but doesn't wipe your data next launch -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-        <!-- Register our Java Entity class -->
+
         <mapping class="com.example.Product"/>
     </session-factory>
 </hibernate-configuration>
+

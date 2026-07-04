@@ -8,7 +8,10 @@ import java.util.List;
 public class ProductMain {
     public static void main(String[] args) {
         // 1. Initialize the Hibernate Session Factory using our config file
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        SessionFactory factory;
+        factory = configuration.buildSessionFactory();
 
         // 2. Open a database communication channel
         try (Session session = factory.openSession()) {
