@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- MySQL Database Driver Class -->
+        <property name="jakarta.persistence.jdbc.driver">com.mysql.cj.jdbc.Driver</property>
+
+        <!-- MySQL Connection URL (Update localhost:3306/demo_db if your port or DB name is different) -->
+        <property name="jakarta.persistence.jdbc.url">jdbc.mysql://localhost:3306/demo_db?useSSL=false&amp;serverTimezone=UTC</property>
+
+        <!-- Database Credentials (CHANGE THESE to match your local MySQL username and password) -->
+        <property name="jakarta.persistence.jdbc.user">root</property>
+        <property name="jakarta.persistence.jdbc.password">yourpassword</property>
+
+        <!-- Dialect to optimize Hibernate queries for modern MySQL systems -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Debugging configurations to see the statements in terminal -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Changed to 'update' so it builds tables if missing, but doesn't wipe your data next launch -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Register our Java Entity class -->
+        <mapping class="com.example.Product"/>
+    </session-factory>
+</hibernate-configuration>

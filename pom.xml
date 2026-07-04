@@ -22,6 +22,20 @@
             <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Hibernate ORM Core Engine -->
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.6.1.Final</version>
+        </dependency>
+
+        <!-- Official MySQL Driver -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.7.0</version>
+        </dependency>
     </dependencies>
 
 </project>
